@@ -2,69 +2,46 @@
 public class Appointments {
 	private String patientID;
 	private String gpID;
-	private String nurseID;
+	//private String nurseID;
 	private boolean gpAvailability;
 	private boolean nurseAvailability;
 	private String calenderDate;
 	
-	private String getPatientId() {
-		return patientID;
-	}
-	
-	private void setPatientId(String id) {
-		patientID=pId;
-	}
-	
-	private String getGpId() {
-		return gpID;
-	}
-	
-	private void setGpId(String id) {
+	Appointments (String pid, String gpId, String nId, boolean gpAvail, boolean nurseAvail, String calenDate) {
+		patientID=pid;
 		gpID=gpId;
-	}
-	
-	private String getNurseId() {
-		return nurseID;
-	}
-	
-	private void setNurseId(String id) {
-		nurseID=nId;
-	}
-	
-	private boolean getGpAvailability() {
-		return gpAvailability;
-	}
-	
-	private void setGpAvailability(String availability) {
+		//nurseID=nId;
 		gpAvailability=gpAvail;
-	}
-	
-	private boolean getNurseAvailability() {
-		return nurseAvailability;
-	}
-	
-	private void setNurseAvailability(String availability) {
 		nurseAvailability=nurseAvail;
+		calenderDate=calenDate;
+		
 	}
 	
-	private String getCalenderDate() {
+	
+	
+	public String getCalenderDate() {
 		return calenderDate;
 	}
 	
-	private void setCalenderDate(String date) {
-		calenderDate=calenDate;
+	public void setCalenderDate(String date) {
+		calenderDate=date;
 	}
 	
-		Appointment (String pid, String gpId, String nId, boolean gpAvail, boolean nurseAvail, String calenDate) {
-			patientID=pid;
-			gpID=gpId;
-			nurseID=nId;
-			gpAvailability=gpAvail;
-			nurseAvailability=nurseAvail;
-			calenderDate=calenDate;
-		}
 		
-				public static void getAppointment() {
-					System.out.printIn();
-				}
+	public void setAppointment() {
+			
+		Patient pId = new Patient();
+		patientID=pId.getPatientId();
+		
+		GeneralPractinional gp = new GeneralPractinional();
+		gpID=gp.getGpId();
+		
+		
+		//This part is for the Nurse Id//
+		//We will add it in the future
+		
+		gpAvailability=true;
+			
+	}
+	
 }
