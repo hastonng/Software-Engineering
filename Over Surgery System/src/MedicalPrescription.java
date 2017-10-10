@@ -7,65 +7,50 @@ public class MedicalPrescription {
 	private int patientCondition;
 	private String drugPrescribed;
 	
-	private String getPrescriptionID() {
+	
+
+	MedicalPrescription(String presID, String pid, String gpid, String pDisease, int pCondition, String drugPres){
+		
+		prescriptionID=presID;
+		patientID=pid;
+		gpID=gpid;
+		patientDisease=pDisease;
+		patientCondition=pCondition;
+		drugPrescribed=drugPres;
+		
+	}
+	
+	
+	public String getPrescriptionID() {
 		return prescriptionID;
 	}
 	
-	private void setPrescriptionID(String presID) {
+	public void setPrescriptionID(String presID) {
 		prescriptionID=presID;
 	}
 	
-	private String getPatientID() {
-		return patientID;
-	}
-	
-	private void setPatientID(String pid) {
-		patientID=pid;
-	}
-	
-	private String getGpID() {
-		return gpID;
-	}
-	
-	private void setGpID(String gpid) {
-		gpID=gpid;
-	}
-	
-	private String getPatientDisease() {
+	public String getPatientDisease() {
 		return patientDisease;
 	}
 	
-	private void setPatientDisease(String pDisease) {
+	public void setPatientDisease(String pDisease) {
 		patientDisease=pDisease;
 	}
 	
-	private int getPatientCondition() {
+	public int getPatientCondition() {
 		return patientCondition;
 	}
 	
-	private void setPatientCondition(int pCondition) {
+	public void setPatientCondition(int pCondition) {
 		patientCondition=pCondition;
 	}
 	
-	private String getDrugPrescribed() {
+	public String getDrugPrescribed() {
 		return drugPrescribed;
 	}
 	
-	private void setDrugPrescribed(String drugPres) {
+	public void setDrugPrescribed(String drugPres) {
 		drugPrescribed=drugPres;
 	}
-	
-	
-	MedicalPrescription(String presID, String pid, String gpid, String pDisease, String pCondition, String drugPres){
-		
-		prescriptionID=presID;
-		patientID=pid;
-		gpID=gpid;
-		patientDisease=pDisease;
-		patientCondition=pCondition;
-		drugPrescribed=drugPres;
-		
-	}
-	
 	
 }

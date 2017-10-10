@@ -12,101 +12,103 @@ public class Patient {
 	private int appointment; 
 	
 		
-	private String getPatientId() {
+	
+	Patient(){
+		
+		patientID = "";
+		patientName = "";
+		dateOfBirth = 0;
+		phoneNum = 0;
+		gender = 'N';
+		address = "";
+		nricNum = 0;
+		patientWeight = 0;
+		patientHeight = 0;
+		appointment = 0;
+		
+}
+	
+	
+	
+	public String getPatientId() {
 		return patientID;
 	}
 	
-	private void setPatientId(String pid) {
+	public void setPatientId(String pid) {
 		patientID=pid;
 	}
 	
-	private String getPatientName() {
+	public String getPatientName() {
 		return patientName;
 	}
 	
-	private void setPatientName(String name) {
+	public void setPatientName(String name) {
 		patientName=name;
 	}
 	
-	private int getDateOfBirth() {
+	public int getDateOfBirth() {
 		return dateOfBirth;
 	}
 	
-	private void setDateOfBirth(int dob) {
+	public void setDateOfBirth(int dob) {
 		dateOfBirth=dob;
 	}
 	
-	private int getPhoneNum() {
+	public int getPhoneNum() {
 		return phoneNum;
 	}
 	
-	private void setPhoneNum(int phNo) {
+	public void setPhoneNum(int phNo) {
 		phoneNum=phNo;
 	}
 	
-	private char getGender() {
+	public char getGender() {
 		return gender;
 	}
 	
-	private void setGender(char sex) {
+	public void setGender(char sex) {
 		gender=sex;
 	}
 	
-	private String getAddress() {
+	public String getAddress() {
 		return address;
 	}
 	
-	private void setAddress(String add) {
+	public void setAddress(String add) {
 		address=add;
 	}
 	
-	private int getNricNum() {
+	public int getNricNum() {
 		return nricNum;
 	}
 	
-	private void setNricNum(int ICNum) {
+	public void setNricNum(int ICNum) {
 		nricNum=ICNum;
 	}
 	
-	private int getPatientWeight() {
+	public int getPatientWeight() {
 		return patientWeight;
 	}
 	
-	private void setPatientWeight(int pWeight) {
+	public void setPatientWeight(int pWeight) {
 		patientWeight=pWeight;
 	}
 	
-	private int getPatientHeight() {
+	public int getPatientHeight() {
 		return patientHeight;
 	}
 	
-	private void setPatientHeight(int pHeight) {
+	public void setPatientHeight(int pHeight) {
 		patientHeight=pHeight;
 	}
 	
-	private int getAppointment() {
+	public int getAppointment() {
 		return appointment;
 	}
 	
-	private void setAppointment(int app) {
+	public void setAppointment(int app) {
 		appointment=app;
 	}
-	
-	Patient(String pid, String name, int dob, int phNo, char sex, String add, int ICNum, int pWeight, int pHeight, int app){
-			
-			patientID = pid;
-			patientName = name;
-			dateOfBirth = dob;
-			phoneNum = phNo;
-			gender = sex;
-			address = add;
-			nricNum = ICNum;
-			patientWeight = pWeight;
-			patientHeight = pHeight;
-			appointment = app;
-			
-	}
-	
-	
+
 }
 	
