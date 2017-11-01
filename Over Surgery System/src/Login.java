@@ -13,7 +13,7 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Button;
-public class Login {
+public class Login extends JFrame {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -96,8 +96,8 @@ public class Login {
 			{
 				try 
 				{
-					firstScreen fScreen = new firstScreen();
-					fScreen.setVisible(true);
+					MainPage mainpage = new MainPage();
+					mainpage.setVisible(true);
 				}
 				catch (Exception ex)
 				{
@@ -110,7 +110,7 @@ public class Login {
 		panel.add(loginBtn);
 	
 		JButton FPwdBtn = new JButton("Forget Password");
-		FPwdBtn.setBounds(239, 310, 115, 36);
+		FPwdBtn.setBounds(192, 310, 162, 36);
 		panel.add(FPwdBtn);
 		
 	}
