@@ -2,17 +2,20 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-public class FindPatient {
+public class FindPatient extends JFrame{
 
-	private JFrame frame;
+	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -25,8 +28,8 @@ public class FindPatient {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FindPatient window = new FindPatient();
-					window.frame.setVisible(true);
+					FindPatient frame = new FindPatient();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,25 +38,17 @@ public class FindPatient {
 	}
 
 	/**
-	 * Create the application.
-	 */
-	public FindPatient() {
-		initialize();
-	}
-
-	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 600);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(0, 0, 784, 561);
-		frame.getContentPane().add(panel);
+	FindPatient() {
+		setBounds(100, 100, 800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.WHITE);
+        panel.setBounds(0, 0, 784, 572);
+        panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(panel);
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
@@ -121,6 +116,20 @@ public class FindPatient {
 		JButton cancelBtn = new JButton("Cancel");
 		cancelBtn.setBounds(226, 413, 134, 43);
 		panel.add(cancelBtn);
+		cancelBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				try
+				{
+					MainPage mPage = new MainPage();
+					mPage.setVisible(true);
+				}
+				catch (Exception ex)
+				{
+					ex.printStackTrace();
+				}
+			}
+		});
 		
 
 	}
