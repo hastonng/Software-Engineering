@@ -20,48 +20,15 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
-public class AppointmentPage extends JFrame {
-
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField timeLabel;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AppointmentPage frame = new AppointmentPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
+public class AppointmentPage
+{
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	AppointmentPage() {
-		setBounds(100, 100, 1000, 800);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.WHITE);
-        panel.setBounds(0, 0, 784, 572);
-        panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(panel);
-		panel.setLayout(null);
+	public static void show()
+	{
+        JPanel panel = Window.getCleanContentPane();
+		Window.setWindowSize(1000,800);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 0, 984, 36);
@@ -77,7 +44,7 @@ public class AppointmentPage extends JFrame {
 		lblPatientId.setBounds(35, 115, 95, 20);
 		panel.add(lblPatientId);
 		
-		textField_4 = new JTextField();
+		JTextField textField_4 = new JTextField();
 		textField_4.setBounds(140, 117, 206, 20);
 		panel.add(textField_4);
 		textField_4.setColumns(10);
@@ -127,7 +94,7 @@ public class AppointmentPage extends JFrame {
 		lblGeneralPractictionerId.setBounds(35, 267, 196, 20);
 		panel.add(lblGeneralPractictionerId);
 		
-		textField_5 = new JTextField();
+		JTextField textField_5 = new JTextField();
 		textField_5.setColumns(10);
 		textField_5.setBounds(241, 269, 206, 20);
 		panel.add(textField_5);
@@ -159,7 +126,7 @@ public class AppointmentPage extends JFrame {
 		lblNurseId.setBounds(35, 454, 81, 20);
 		panel.add(lblNurseId);
 		
-		textField_6 = new JTextField();
+		JTextField textField_6 = new JTextField();
 		textField_6.setColumns(10);
 		textField_6.setBounds(140, 456, 206, 20);
 		panel.add(textField_6);
@@ -196,7 +163,7 @@ public class AppointmentPage extends JFrame {
 		lblTime.setBounds(580, 569, 56, 20);
 		panel.add(lblTime);
 		
-		timeLabel = new JTextField();
+		JTextField timeLabel = new JTextField();
 		timeLabel.setBounds(629, 571, 115, 20);
 		panel.add(timeLabel);
 		timeLabel.setColumns(10);
@@ -206,13 +173,13 @@ public class AppointmentPage extends JFrame {
 		panel.add(btnNewButton_1);
 		
 		JButton btnCancel = new JButton("Cancel");
-		btnCancel.addActionListener(new ActionListener() {
+		btnCancel.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent e)
 			{
 				try
 					{
-						MainPage mPage = new MainPage();
-						mPage.setVisible(true);
+						MainPage.show();
 					}
 					catch (Exception ex)
 					{
@@ -222,6 +189,7 @@ public class AppointmentPage extends JFrame {
 		});
 		btnCancel.setBounds(652, 695, 89, 23);
 		panel.add(btnCancel);
-		
+
+		Window.update();
 	}
 }
