@@ -3,10 +3,15 @@ import java.awt.Font;
 import java.awt.SystemColor;
 
 import javax.swing.JFrame;
+import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 import java.awt.event.ActionEvent;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
@@ -28,37 +33,14 @@ import javax.swing.JToggleButton;
 import javax.swing.JList;
 import javax.swing.JRadioButton;
 
-public class MainPage extends JFrame {
-
-	private JPanel contentPane;
-
+public class MainPage
+{
 	/**
-	 * Launch the application.
+	 * @wbp.parser.entryPoint
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainPage frame = new MainPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	MainPage() {
-		setBounds(100, 100, 800, 600);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JPanel panel = new JPanel();
-        panel.setBackground(Color.WHITE);
-        panel.setBounds(0, 0, 784, 572);
-        panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(panel);
-		panel.setLayout(null);
+	public static void show()
+	{
+		JPanel panel = Window.getCleanContentPane();
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 0, 795, 36);
@@ -69,7 +51,18 @@ public class MainPage extends JFrame {
 		panel_1.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JButton RPatientBtn = new JButton("");
+		BufferedImage rPatientImg = null;
+		try 
+		{
+			URL file = MainPage.class.getResource("registerPatients.png");
+			rPatientImg = ImageIO.read(file);
+		}
+		catch (IOException ioex)
+		{
+			System.err.println("load error: "+ ioex.getMessage());
+		}
+		ImageIcon icon = new ImageIcon(rPatientImg);
+		JButton RPatientBtn = new JButton(icon);
 		RPatientBtn.setBounds(49, 188, 121, 110);
 		panel.add(RPatientBtn);
 		RPatientBtn.addActionListener(new ActionListener() {
@@ -77,8 +70,7 @@ public class MainPage extends JFrame {
 			{
 				try 
 				{
-					newPatient nPatient = new newPatient();
-					nPatient.setVisible(true);
+					newPatientPage.show();
 				}
 				catch (Exception ex)
 				{
@@ -87,7 +79,18 @@ public class MainPage extends JFrame {
 			}
 		});
 		
-		JButton fPatientBtn = new JButton("");
+		BufferedImage fPatientImg = null;
+		try 
+		{
+			URL file = MainPage.class.getResource("fPatientTest.png");
+			fPatientImg = ImageIO.read(file);
+		}
+		catch (IOException ioex)
+		{
+			System.err.println("load error: "+ ioex.getMessage());
+		}
+		ImageIcon icon1 = new ImageIcon(fPatientImg);
+		JButton fPatientBtn = new JButton(icon1);
 		fPatientBtn.setBounds(239, 188, 121, 110);
 		panel.add(fPatientBtn);
 		fPatientBtn.addActionListener(new ActionListener() {
@@ -95,8 +98,7 @@ public class MainPage extends JFrame {
 			{
 				try
 				{
-					FindPatient fPatient = new FindPatient();
-					fPatient.setVisible(true);
+					FindPatientPage.show();
 				}
 				catch (Exception ex)
 				{
@@ -105,7 +107,18 @@ public class MainPage extends JFrame {
 			}
 		});
 		
-		JButton mAppointmentBtn = new JButton("");
+		BufferedImage mAppImg = null;
+		try 
+		{
+			URL file = MainPage.class.getResource("makeAppointment.png");
+			mAppImg = ImageIO.read(file);
+		}
+		catch (IOException ioex)
+		{
+			System.err.println("load error: "+ ioex.getMessage());
+		}
+		ImageIcon icon2 = new ImageIcon(mAppImg);
+		JButton mAppointmentBtn = new JButton(icon2);
 		mAppointmentBtn.setBounds(424, 188, 121, 110);
 		panel.add(mAppointmentBtn);
 		mAppointmentBtn.addActionListener(new ActionListener() {
@@ -113,8 +126,7 @@ public class MainPage extends JFrame {
 			{
 				try
 				{
-					AppointmentPage aPage = new AppointmentPage();
-					aPage.setVisible(true);
+					AppointmentPage.show();
 				}
 				catch (Exception ex)
 				{
@@ -123,16 +135,44 @@ public class MainPage extends JFrame {
 			}
 		});
 		
-		JButton logoutBtn = new JButton("");
-		logoutBtn.setBounds(611, 188, 121, 110);
+		BufferedImage cAvaiImg = null;
+		try 
+		{
+			URL file = MainPage.class.getResource("CheckAvailability.png");
+			cAvaiImg = ImageIO.read(file);
+		}
+		catch (IOException ioex)
+		{
+			System.err.println("load error: "+ ioex.getMessage());
+		}
+		ImageIcon icon3 = new ImageIcon(cAvaiImg);
+		//icon3.setBounds(611, 188, 121, 110);
+		JButton AvaiBtn = new JButton(icon3);
+		AvaiBtn.setBounds(611, 188, 121, 110);
+		panel.add(AvaiBtn);
+		AvaiBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				try 
+				{
+					checkAvaibilityPage.show();
+				}
+				catch (Exception ex)
+				{
+					ex.printStackTrace();
+				}
+			}
+		});
+		
+		JButton logoutBtn = new JButton("Logout");
+		logoutBtn.setBounds(590, 470, 121, 50);
 		panel.add(logoutBtn);
 		logoutBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				try 
 				{
-					Login login = new Login();
-					login.setVisible(true);
+					LoginPage.show();
 				}
 				catch (Exception ex)
 				{
@@ -153,9 +193,10 @@ public class MainPage extends JFrame {
 		lblMakeAppointment.setBounds(430, 309, 121, 26);
 		panel.add(lblMakeAppointment);
 		
-		JLabel lblLogout = new JLabel("Logout\r\n");
-		lblLogout.setBounds(650, 309, 39, 26);
-		panel.add(lblLogout);
+		JLabel lblAvai = new JLabel("Availability\r\n");
+		lblAvai.setBounds(640, 309, 60, 26);
+		panel.add(lblAvai);
 		
+		Window.update();
 	}
 }
