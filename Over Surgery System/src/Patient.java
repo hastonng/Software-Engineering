@@ -1,114 +1,219 @@
+import java.sql.*;
+
+
 public class Patient {
 
-	private String patientID;
+
 	private String patientName;
-	private int dateOfBirth;
-	private int phoneNum;
-	private char gender;
+	private String patientID;
+	private String dob;
+	private String sex;
+	private String phoneNum;
+	private String email;
 	private String address;
-	private int nricNum;
 	private int patientWeight;
-	private int patientHeight;
-	private int appointment; 
-	
+	private int	patientHeight;
+	private int appointment;
+	private String prescripID;
+	private String disease;
+	private int condition;
+	private String diagnosis;
+	private String nricNum;
 		
 	
 	Patient(){
 		
 		patientID = "";
 		patientName = "";
-		dateOfBirth = 0;
-		phoneNum = 0;
-		gender = 'N';
+		dob = "";
+		phoneNum = "";
+		sex = "";
 		address = "";
-		nricNum = 0;
+		nricNum = "";
 		patientWeight = 0;
 		patientHeight = 0;
 		appointment = 0;
 		
-}
-	
-	
-	
-	public String getPatientId() {
-		return patientID;
 	}
 	
-	public void setPatientId(String pid) {
-		patientID=pid;
+	public String getNricNum() {
+		return nricNum;
 	}
-	
+
+
+
+	public void setNricNum(String nricNum) {
+		this.nricNum = nricNum;
+	}
+
+
+
 	public String getPatientName() {
 		return patientName;
 	}
-	
-	public void setPatientName(String name) {
-		patientName=name;
+
+
+
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
-	
-	public int getDateOfBirth() {
-		return dateOfBirth;
+
+
+
+	public String getPatientID() {
+		return patientID;
 	}
-	
-	public void setDateOfBirth(int dob) {
-		dateOfBirth=dob;
+
+
+
+	public void setPatientID(String patientID) {
+		this.patientID = patientID;
 	}
-	
-	public int getPhoneNum() {
+
+
+
+	public String getDob() {
+		return dob;
+	}
+
+
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+
+
+	public String getSex() {
+		return sex;
+	}
+
+
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+
+
+	public String getPhoneNum() {
 		return phoneNum;
 	}
-	
-	public void setPhoneNum(int phNo) {
-		phoneNum=phNo;
+
+
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
 	}
-	
-	public char getGender() {
-		return gender;
+
+
+
+	public String getEmail() {
+		return email;
 	}
-	
-	public void setGender(char sex) {
-		gender=sex;
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
+
+
+
 	public String getAddress() {
 		return address;
 	}
-	
-	public void setAddress(String add) {
-		address=add;
+
+
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	
-	public int getNricNum() {
-		return nricNum;
-	}
-	
-	public void setNricNum(int ICNum) {
-		nricNum=ICNum;
-	}
-	
+
+
+
 	public int getPatientWeight() {
 		return patientWeight;
 	}
-	
-	public void setPatientWeight(int pWeight) {
-		patientWeight=pWeight;
+
+
+
+	public void setPatientWeight(int patientWeight) {
+		this.patientWeight = patientWeight;
 	}
-	
+
+
+
 	public int getPatientHeight() {
 		return patientHeight;
 	}
-	
-	public void setPatientHeight(int pHeight) {
-		patientHeight=pHeight;
+
+
+
+	public void setPatientHeight(int patientHeight) {
+		this.patientHeight = patientHeight;
 	}
-	
+
+
+
 	public int getAppointment() {
 		return appointment;
 	}
-	
-	public void setAppointment(int app) {
-		appointment=app;
+
+
+
+	public void setAppointment(int appointment) {
+		this.appointment = appointment;
 	}
+
+
+
+	public String getPrescripID() {
+		return prescripID;
+	}
+
+
+
+	public void setPrescripID(String prescripID) {
+		this.prescripID = prescripID;
+	}
+
+
+
+	public String getDisease() {
+		return disease;
+	}
+
+
+
+	public void setDisease(String disease) {
+		this.disease = disease;
+	}
+
+
+
+	public int getCondition() {
+		return condition;
+	}
+
+
+
+	public void setCondition(int condition) {
+		this.condition = condition;
+	}
+
+
+
+	public String getDiagnosis() {
+		return diagnosis;
+	}
+
+
+
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+	}
+	
 
 }
 	

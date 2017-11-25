@@ -7,7 +7,6 @@ public class Login {
 	private int userRole;
 	private boolean loginValidation;
 	
-	private DbConnector conStr = new DbConnector();
 	
 	
 	
@@ -28,14 +27,15 @@ public class Login {
 	}
 	
 	
-	public void login(String uName, String pW) throws SQLException {
+	public void login(String uName, String pW) {
 		
 		try {
 			String  Sql = "select employeeID,password from oversurgerysystem.employee where employeeID='"+uName+"'";
 			
 			
+			DbConnector conStr = new DbConnector();
 			Class.forName(conStr.getForName());
-			Connection connection = DriverManager.getConnection(conStr.getConnection());
+			Connection connection = DriverManager.getConnection("jdbc:mysql://"+conStr.getHostname()+":3306/oversurgerysystem",conStr.getUserName(),conStr.getPassword());
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery(Sql);
 			
@@ -43,6 +43,10 @@ public class Login {
 				tempUsername = rs.getString("employeeID");
 				tempPassword = rs.getString("password");
 			}
+			
+			rs.close();
+			stmt.close();
+			connection.close();
 			
 			
 			checkLogin(uName,pW);
@@ -53,6 +57,9 @@ public class Login {
 			
 			
 		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -76,17 +83,24 @@ public class Login {
 	
 	public void checkRole(String uN) {
 		
-		String Sql = "select USER_ROLE from ECRS_SCHEMA.ECRS_USER where USER_ID='"+uN+"'";
+		String Sql = "select role from oversurgerysystem.employee where employeeID='"+uN+"'";
 		
 		try {
+			
+			DbConnector conStr = new DbConnector();
 			Class.forName(conStr.getForName());
-			Connection connection = DriverManager.getConnection(conStr.getConnection());
+			Connection connection = DriverManager.getConnection("jdbc:mysql://"+conStr.getHostname()+":3306/oversurgerysystem",conStr.getUserName(),conStr.getPassword());
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery(Sql);
 			
 			while(rs.next()) {
 				userRole = rs.getInt("role");
 			}
+			
+			
+			rs.close();
+			stmt.close();
+			connection.close();
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
