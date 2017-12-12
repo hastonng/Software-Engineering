@@ -11,7 +11,7 @@ public class LoginTest {
 		
 		
 		Login log = new Login();
-		log.login("C1500400", "HASTON");
+		log.login("R1500400", "HASTON");
 		
 		int actualRole = 1;
 		int role=log.getUserRole();

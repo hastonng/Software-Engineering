@@ -30,29 +30,37 @@ public class Login {
 	public void login(String uName, String pW) {
 		
 		try {
-			String  Sql = "select employeeID,password from oversurgerysystem.employee where employeeID='"+uName+"'";
+			String  Sql = "select EMPLOYEE_ID,PASSWORD from oversurgerysystem.employee where EMPLOYEE_ID='"+uName+"' AND PASSWORD='"+pW+"';";
 			
 			
-			DbConnector conStr = new DbConnector();
-			Class.forName(conStr.getForName());
-			Connection connection = DriverManager.getConnection("jdbc:mysql://"+conStr.getHostname()+":3306/oversurgerysystem",conStr.getUserName(),conStr.getPassword());
+			Connection connection = ConnectionSingleton.getInstance();
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery(Sql);
+
 			
 			while (rs.next()) {
-				tempUsername = rs.getString("employeeID");
-				tempPassword = rs.getString("password");
+				tempUsername = rs.getString("EMPLOYEE_ID");
+				tempPassword = rs.getString("PASSWORD");
 			}
+			
+			System.out.println(Sql);
 			
 			rs.close();
 			stmt.close();
-			connection.close();
 			
 			
-			checkLogin(uName,pW);
-			if(loginValidation ==true) {
-				checkRole (uName);
+			
+			if(tempUsername == null || tempPassword == null) {
+				loginValidation = false;
 			}
+			else
+			{
+				
+				loginValidation = true;
+				checkRole (uName);
+				
+			}
+			
 			
 			
 			
@@ -60,8 +68,8 @@ public class Login {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			loginValidation = false;
 		}
 		
 		
@@ -83,24 +91,21 @@ public class Login {
 	
 	public void checkRole(String uN) {
 		
-		String Sql = "select role from oversurgerysystem.employee where employeeID='"+uN+"'";
+		String Sql = "select ROLE from oversurgerysystem.employee where EMPLOYEE_ID='"+uN+"'";
 		
 		try {
 			
-			DbConnector conStr = new DbConnector();
-			Class.forName(conStr.getForName());
-			Connection connection = DriverManager.getConnection("jdbc:mysql://"+conStr.getHostname()+":3306/oversurgerysystem",conStr.getUserName(),conStr.getPassword());
+			Connection connection = ConnectionSingleton.getInstance();
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery(Sql);
 			
 			while(rs.next()) {
-				userRole = rs.getInt("role");
+				userRole = rs.getInt("ROLE");
 			}
 			
-			
+			System.out.println(Sql);
 			rs.close();
 			stmt.close();
-			connection.close();
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

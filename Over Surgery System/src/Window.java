@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.GraphicsEnvironment;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,8 +14,12 @@ public class Window extends JFrame
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args)
 	{
+		
+		
+		
 		EventQueue.invokeLater( new Runnable()
 		{
 			public void run()
@@ -22,7 +28,7 @@ public class Window extends JFrame
 				{
 					window = new Window();
 					resetWindow();
-					GPMainPage.show();
+					LoginPage.show();
 				}
 				catch (Exception e)
 				{
@@ -34,24 +40,31 @@ public class Window extends JFrame
 	
 	private Window()
 	{
-		setBounds(100, 100, 800, 600);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		getContentPane().setLayout(null);
-		setVisible(true);
+		//setBounds(100, 100, 800, 600);
+		//setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
+		getContentPane().setLayout(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Already there
+	    setExtendedState(JFrame.MAXIMIZED_BOTH);
+	    setUndecorated(true);
+	    setVisible(true);
+	    
 		contentPane = new JPanel();
 		getContentPane().add(contentPane);
 	}
 	
-	public static void setWindowSize( int width , int height )
+	/*public static void setWindowSize( int width , int height )
 	{
 		window.setSize(width, height);
 		window.contentPane.setSize(width, height);
-	}
+	}*/
 	
 	public static void resetWindow()
 	{
-		setWindowSize(784, 572);
+		
+		/* for (java.awt.Window w : Window.getWindows()) {
+             GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(w);
+         }*/
 		window.contentPane.setBackground(Color.WHITE);
 		window.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		window.contentPane.setLayout(null);
